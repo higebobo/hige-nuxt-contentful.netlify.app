@@ -29,10 +29,31 @@
                 max-height="200"
                 class="white--text"
               >
+
+                <v-card-text>
+                  <v-chip
+                    small
+                    dark
+                    :color="categoryColor(post.fields.category)"
+                    to="#"
+                    class="font-weight-bold"
+                  >
+                    {{ post.fields.category.fields.title }}
+                  </v-chip>
+                </v-card-text>
+
                 <v-card-title class="align-end fill-height font-weight-bold">
                   {{ post.fields.title }}
                 </v-card-title>
               </v-img>
+
+              <v-card-title>
+                <nuxt-link
+                  :to="linkTo('posts', post)"
+                >
+                  {{ post.fields.title }}
+                </nuxt-link>
+              </v-card-title>
 
               <v-card-text>
                 {{ post.fields.pubDate }}
@@ -77,6 +98,15 @@ export default {
   computed: {
     ...mapState(['posts']),
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo']),
+    categoryColor() {
+      return (category) => {
+        switch (category.fields.title) {
+          case 'はげ': return '#C73A31'
+          case 'ぼけ': return 'primary'
+          default: return 'grey darken-3'
+        }
+      }
+    }
   }
 }
 </script>
