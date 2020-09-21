@@ -41,7 +41,7 @@ export default {
   ],
   router: {
     middleware: [
-      'getContentful'
+      'contentful-helpers'
     ]
   },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
