@@ -41,4 +41,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 * [【Nuxt\.js】middlewareを活用しブログ記事取得のパフォーマンスを改善する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-nuxtjs-middleware)
 * [【Contentful】カテゴリーモデルとブログ記事モデルの関連付け \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-creating-category)
 * [【Nuxt\.js × Contentful】ブログ記事に関連付くカテゴリーを表示する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-refarences-category)
+* [【Nuxt\.js × Contentful】カテゴリー記事一覧ページを作成する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-related-posts)
 * [【Nuxt\.js】ContentfulのMarkdown形式のブログコンテンツを表示する \| エンジニアの教科書](https://developers-book.com/2020/07/14/113/)
