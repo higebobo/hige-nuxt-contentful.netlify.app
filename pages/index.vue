@@ -50,7 +50,7 @@
                 <v-btn
                   text
                   color="primary"
-                  :to="linkTo(post)"
+                  :to="linkTo('posts', post)"
                 >
                   この記事をみる
                 </v-btn>
@@ -67,8 +67,7 @@
 </template>
 
 <script>
-import client from '~/plugins/contentful'
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import draftChip from '~/components/posts/draftChip'
 
 export default {
@@ -76,18 +75,8 @@ export default {
     draftChip
   },
   computed: {
-    ...mapGetters(['setEyeCatch', 'draftChip']),
-    linkTo: () => (obj) => {
-      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
-    },
-  },
-  async asyncData({ env }) {
-    let posts = []
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      order: '-fields.pubDate'
-    }).then(res => (posts = res.items)).catch(console.error)
-    return { posts }
+    ...mapState(['posts']),
+    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo']),
   }
 }
 </script>

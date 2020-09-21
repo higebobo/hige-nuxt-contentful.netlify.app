@@ -39,7 +39,11 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit'
   ],
-
+  router: {
+    middleware: [
+      'getContentful'
+    ]
+  },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
