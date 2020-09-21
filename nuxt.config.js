@@ -1,4 +1,5 @@
 require('dotenv').config() // 追記
+const client = require('./plugins/contentful').default
 
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -54,5 +55,20 @@ export default {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
+  },
+generate: {
+    routes() {
+      return Promise.all([
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        })
+      ]).then(([ posts ]) => {
+        return [
+          ...posts.items.map(post => {
+            return { route: `posts/${post.fields.slug}`, payload: post }
+          })
+        ]
+      })
+    }
   }
 }
