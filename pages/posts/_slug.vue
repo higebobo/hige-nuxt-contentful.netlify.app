@@ -12,7 +12,7 @@
       class="mx-auto"
     />
     {{ currentPost.fields.pubDate }}<br>
-    {{ currentPost.fields.body }}
+    <div v-html="$md.render(currentPost.fields.body)"></div>
 
   </v-container>
 </template>

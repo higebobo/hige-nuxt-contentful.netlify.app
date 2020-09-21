@@ -42,4 +42,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 * [【Contentful】カテゴリーモデルとブログ記事モデルの関連付け \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-creating-category)
 * [【Nuxt\.js × Contentful】ブログ記事に関連付くカテゴリーを表示する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-refarences-category)
 * [【Nuxt\.js × Contentful】カテゴリー記事一覧ページを作成する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-related-posts)
+* [Contentfulにタグモデルを作成し関連付けを行う \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-contentful-tags)
 * [【Nuxt\.js】ContentfulのMarkdown形式のブログコンテンツを表示する \| エンジニアの教科書](https://developers-book.com/2020/07/14/113/)
