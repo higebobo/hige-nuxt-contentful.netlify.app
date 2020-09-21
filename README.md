@@ -32,4 +32,5 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+* [ContentfulからAPIを取得してNuxt\.jsで記事一覧を表示する \- 独学プログラマ](https://blog.cloud-acct.com/posts/blog-contentful-api)
 * [【Nuxt\.js】ContentfulのMarkdown形式のブログコンテンツを表示する \| エンジニアの教科書](https://developers-book.com/2020/07/14/113/)
