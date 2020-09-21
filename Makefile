@@ -11,7 +11,10 @@ ifneq ("$(wildcard ./.env)","")
 endif
 
 run: ## Run Server
-	@npm run dev
+	@npm run de
+
+run-static: ## Run generate html
+	@npm start
 
 build: ## Build contents
 	@npm run build

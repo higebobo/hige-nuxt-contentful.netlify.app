@@ -21,7 +21,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    'plugins/contentful'
+    'plugins/contentful',
+    'plugins/components',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -58,18 +59,26 @@ export default {
     // contentful
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+    CTF_BLOG_CATEGORY_TYPE_ID: process.env.CTF_BLOG_CATEGORY_TYPE_ID
   },
-generate: {
+  generate: {
     routes() {
       return Promise.all([
         client.getEntries({
           content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        }),
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_CATEGORY_TYPE_ID
+          //content_type: 'category'
         })
-      ]).then(([ posts ]) => {
+      ]).then(([posts, categories]) => {
         return [
-          ...posts.items.map(post => {
+          ...posts.items.map((post) => {
             return { route: `posts/${post.fields.slug}`, payload: post }
+          }),
+          ...categories.items.map((category) => {
+            return { route: `categories/${category.fields.slug}`, payload: category }
           })
         ]
       })
