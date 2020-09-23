@@ -66,9 +66,7 @@
                 </v-list-item-subtitle>
               </v-list-item>
 
-              <v-card-text
-                style="height: 64px;"
-              >
+              <v-card-text>
                 <template v-if="post.fields.tags">
                   <v-chip
                     v-for="(tag) in post.fields.tags"
