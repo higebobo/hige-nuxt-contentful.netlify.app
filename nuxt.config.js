@@ -71,15 +71,22 @@ export default {
         }),
         client.getEntries({
           content_type: process.env.CTF_BLOG_CATEGORY_TYPE_ID
-          //content_type: 'category'
+          //content_type: 'blogCategory'
+        }),
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_TAG_TYPE_ID
+          //content_type: 'blogTag'
         })
-      ]).then(([posts, categories]) => {
+      ]).then(([posts, categories, tags]) => {
         return [
           ...posts.items.map((post) => {
             return { route: `posts/${post.fields.slug}`, payload: post }
           }),
           ...categories.items.map((category) => {
             return { route: `categories/${category.fields.slug}`, payload: category }
+          }),
+          ...tags.items.map((tag) => {
+            return { route: `tags/${tag.fields.slug}`, payload: tag }
           })
         ]
       })

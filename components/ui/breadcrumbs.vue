@@ -6,7 +6,9 @@
         active-class=""
         exact-active-class="v-breadcrumbs__item--disabled"
       >
-        <v-icon v-if="props.item.icon" color="primary">
+        <v-icon
+          v-if="props.item.icon" color="primary"
+          :color="iconColor(props.item)">
           {{ props.item.icon }}
         </v-icon>
         <span class="ml-1">
@@ -36,6 +38,11 @@ export default {
   computed: {
     breadcrumbs() {
       return this.items.concat(this.addItems)
+    },
+    iconColor() {
+      return (item) => {
+        return item.iconColor || 'primary'
+      }
     }
   }
 }
