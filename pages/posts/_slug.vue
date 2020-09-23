@@ -37,6 +37,7 @@ export default {
     const currentPost = payload || await store.state.posts.find(post => post.fields.slug === params.slug)
 
     if (currentPost) {
+      //console.log('ahou: ' + currentPost.fields.category)
       return {
         currentPost,
         category: currentPost.fields.category
