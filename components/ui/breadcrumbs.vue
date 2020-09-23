@@ -3,6 +3,8 @@
     <template #item="props">
       <v-breadcrumbs-item
         :to="props.item.to"
+        active-class=""
+        exact-active-class="v-breadcrumbs__item--disabled"
       >
         <v-icon v-if="props.item.icon" color="primary">
           {{ props.item.icon }}
